@@ -29,6 +29,7 @@ namespace LocalTestApp
 
         public void ListOfEmployees()
         {
+            Console.WriteLine("List of all employees");
             employees.Print();
             Console.WriteLine();
         }
