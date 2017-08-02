@@ -1,3 +1,1 @@
-# TestProjectRepo
-
-# Sample project 
+# Sample project
