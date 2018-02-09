@@ -58,7 +58,7 @@ namespace LocalTestApp
         //However, we can write a new implementation
         public override void Print(int i)
         {
-            //base.Print();
+            base.Print(i);
             Console.WriteLine("SecondDerivedClass PRINT");
         }
     }
@@ -74,8 +74,9 @@ namespace LocalTestApp
     public class DerivedExpImpClass : ExplicitImpClass, ITestInterface
     {
         //Only way to call base class explicitly implemented method is to implement like 'new' method
-        //And remove 'interface' reference from inheritance, else 'Stack overflow' error will be thrown 
+        //And remove 'interface' reference from inheritance chain, else 'Stack overflow' error will be thrown 
         // because method is called recursively
+        //Check the next class for implementation
         public void Print(int i)
         {
             //Below code will throw error
@@ -92,5 +93,23 @@ namespace LocalTestApp
 
         //    Console.WriteLine("Dervied Exp Imp Class");
         //}
+    }
+
+    public class BaseClass2 : ITestInterface
+    {
+        public void Print(int i)
+        {
+            Console.WriteLine("Base Class 2 Print method");
+        }
+    }
+
+    public class DerivedClass2 : BaseClass2
+    {
+        public new void Print(int i)
+        {
+            base.Print(i);
+
+            ((ITestInterface)this).Print(i);
+        }
     }
 }

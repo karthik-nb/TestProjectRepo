@@ -8,7 +8,8 @@ namespace LocalTestApp
 {
     class Program
     {
-        static void Main(string[] args)
+        int i;
+        public static void Main(string[] args)
         {
             #region Test conditions - commented
 
@@ -35,13 +36,13 @@ namespace LocalTestApp
             //string i = "Karthik";
             //DynamicTest(i);
 
-            #endregion            
+            //LinqTestMethods();
 
-            LinqTest linqTest = new LinqTest();
-            linqTest.ListOfEmployees();
-            linqTest.GetTopPaidEmployees(3);
-            linqTest.GetTopPaidEmployeesByCity(1);
-            linqTest.AggregateTest();
+            #endregion
+
+            InheritanceTest();
+            Program pg = new Program();
+            Console.WriteLine(pg.i);
 
             Console.ReadKey();
         }
@@ -141,6 +142,9 @@ namespace LocalTestApp
             //DerivedExpImpClass derivedExpClass = new DerivedExpImpClass();
             //((ITestInterface)derivedExpClass).Print(10);
             //derivedExpClass.Print(10);
+
+            DerivedClass2 dc = new DerivedClass2();
+            dc.Print(5);
         }
 
         private static void MathFuncTest(int paxLength)
@@ -173,5 +177,14 @@ namespace LocalTestApp
         {
             Console.WriteLine(obj.ToString());
         }        
+
+        private static void LinqTestMethods()
+        {
+            LinqTest linqTest = new LinqTest();
+            linqTest.ListOfEmployees();
+            linqTest.GetTopPaidEmployees(3);
+            linqTest.GetTopPaidEmployeesByCity(1);
+            linqTest.AggregateTest();
+        }
     }
 }
